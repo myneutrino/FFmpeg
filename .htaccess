@@ -1,0 +1,11 @@
+php_value upload_max_filesize 1M
+php_value post_max_size 1M
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteRule ^(home|api|categories)?$ index.php?m=$1 [L]
+RewriteRule ^v/(.*)/(.*)$ index.php?m=view&id=$1 [QSA]
+RewriteRule ^v/(.*)$ index.php?m=view&id=$1 [QSA]
+RewriteRule ^categories/id/(.*)$ index.php?m=categories&id=$1 [QSA]
+</IfModule>
